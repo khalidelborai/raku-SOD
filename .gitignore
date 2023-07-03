@@ -4,3 +4,4 @@
 # precompiled files
 .precomp
 lib/.precomp
+*.png

@@ -8,21 +8,18 @@
   ],
   "auth": "zef:khalidelborai",
   "depends": [],
-  "build-depends": [],
+  "build-depends": [
+    "LibraryMake",
+    "Shell::Command"
+  ],
   "test-depends": [],
   "provides": {
     "SOD": "lib/SOD.rakumod",
     "SOD::Raw": "lib/SOD/Raw.rakumod"
   },
   "resources": [
-    "sod.h",
-    "sod_img_writer.h",
-    "sod_img_reader.h",
-    "sod.c",
-    "head",
-    "wrapper.c",
-    "wrapper",
-    "-g"
+    "libraries/",
+    "libraries/libsod.so"
   ],
   "license": "Artistic-2.0",
   "source-url": "Write me!"

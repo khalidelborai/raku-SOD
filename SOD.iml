@@ -6,5 +6,50 @@
       <sourceFolder url="file://$MODULE_DIR$/t" isTestSource="true" packagePrefix="t" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="LibraryMake" type="perl6">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="raku://1166041189:LibraryMake!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Shell::Command" type="perl6">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="raku://1166041189:Shell::Command!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="File::Find" type="perl6">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="raku://1166041189:File::Find!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="{name =&gt; {by-distro.name =&gt; { =&gt; , mswin32 =&gt; Win32::Registry}}}" type="perl6">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="raku://1166041189:{name =&gt; {by-distro.name =&gt; { =&gt; , mswin32 =&gt; Win32::Registry}}}!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="File::Which" type="perl6">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="raku://1166041189:File::Which!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
