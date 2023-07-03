@@ -12,7 +12,7 @@
     "SOD": "lib/SOD.rakumod",
     "SOD::Raw": "lib/SOD/Raw.rakumod"
   },
-  "resources": ["libraries/", "libraries/libsod.so"],
+  "resources": ["libraries/"],
   "license": "Artistic-2.0",
   "source-url": "Write me!"
 }
