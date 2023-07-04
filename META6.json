@@ -1,7 +1,7 @@
 {
   "name": "SOD",
   "description": "Binding for SOD lib",
-  "version": "0.2.1",
+  "version": "0.2.1-dev",
   "perl": "6.*",
   "authors": [
     "Khalid Elborai <elboraikhalid@gmail.com>"
