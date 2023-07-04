@@ -1,18 +1,25 @@
 {
   "name": "SOD",
   "description": "Binding for SOD lib",
-  "version": "0.1",
+  "version": "0.2.1",
   "perl": "6.*",
-  "authors": ["Khalid Elborai <elboraikhalid@gmail.com>"],
+  "authors": [
+    "Khalid Elborai <elboraikhalid@gmail.com>"
+  ],
   "auth": "zef:khalidelborai",
   "depends": [],
-  "build-depends": ["LibraryMake", "Shell::Command"],
+  "build-depends": [
+    "LibraryMake",
+    "Shell::Command"
+  ],
   "test-depends": [],
   "provides": {
     "SOD": "lib/SOD.rakumod",
     "SOD::Raw": "lib/SOD/Raw.rakumod"
   },
-  "resources": ["libraries/"],
+  "resources": [
+    "libraries/"
+  ],
   "license": "Artistic-2.0",
   "source-url": "Write me!"
 }

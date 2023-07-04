@@ -1,0 +1,263 @@
+=begin pod
+
+=TITLE SOD
+
+=SUBTITLE Raku bindings for the SOD image processing library
+
+=head1 DESCRIPTION
+
+SOD is an embedded, modern cross-platform computer vision and machine learning software library that exposes a set of APIs for deep-learning, advanced media analysis & processing including real-time, multi-class object detection and model training on embedded systems with limited computational resource and IoT devices.
+
+=head1 CLASSES
+
+=head2 Image
+
+An C<<Image>> class representing an image that can be manipulated.
+
+=head3 Attributes
+
+=item * CImage $.cimage - underlying CImage structure
+
+=head3 Class Methods
+
+=begin item
+I<load>
+
+C<<load(Str $filename, Int :$channels = 3 --> Image)>>
+
+Load an image from file with a specified number of channels
+=end item
+
+=begin item
+I<load_gray>
+
+C<<load_gray(Str $filename --> Image)>>
+
+Load an image from file in grayscale (single channel)
+=end item
+
+=begin item
+I<empty>
+
+C<<empty(:w($width), :h($height), :c($channels) = 3 --> Image)>>
+
+Create an empty image with given dimensions and number of channels
+=end item
+
+=begin item
+I<zeros>
+
+C<<zeros(:w($width), :h($height), :c($channels) = 3 --> Image)>>
+
+Create an image filled with zeros with given dimensions and number of channels
+=end item
+
+=begin item
+I<random>
+
+C<<random(:w($width), :h($height), :c($channels) = 3 --> Image)>>
+
+Create a random image with given dimensions and number of channels
+=end item
+
+=head3 Instance Methods
+
+=begin item
+I<copy>
+
+C<<copy(--> Image)>>
+
+Copy the current image
+=end item
+
+=begin item
+I<clone>
+
+C<<clone(--> Image)>>
+
+Clone the current image (alias for copy)
+=end item
+
+=begin item
+I<save_png>
+
+C<<save_png(Str $filename --> uint8)>>
+
+Save the current image as a PNG file
+=end item
+
+=begin item
+I<save_jpeg>
+
+C<<save_jpeg(Str $filename, Int() $quality --> uint8)>>
+
+Save the current image as a JPEG file with specified quality
+=end item
+
+=begin item
+I<save_bmp>
+
+C<<save_bmp(Str $filename --> uint8)>>
+
+Save the current image as a BMP file
+=end item
+
+=begin item
+I<set_pixel>
+
+C<<set_pixel($x, $y, $c, Num() $v)>>
+
+Set the pixel value at the specified coordinates and channel
+=end item
+
+=begin item
+I<get_pixel>
+
+C<<get_pixel($x, $y, $c)>>
+
+Get the pixel value at the specified coordinates and channel
+=end item
+
+=begin item
+I<resize>
+
+C<<resize(Int() $w, Int() $h --> Image)>>
+
+Resize the current image to the specified dimensions
+=end item
+
+=begin item
+I<resize_max>
+
+C<<resize_max(Int() $max --> Image)>>
+
+Resize the current image such that the maximum dimension is equal to $max
+=end item
+
+=begin item
+I<resize_min>
+
+C<<resize_min(Int() $min --> Image)>>
+
+Resize the current image such that the minimum dimension is equal to $min
+=end item
+
+=begin item
+I<rotate_crop>
+
+C<<rotate_crop(Num() :a($angle), Scale() :s($scale), Int() :w($width), Int() :h($height), Int() :x($dx), Int() :y($dy), Num() :as($aspect) --> Image)>>
+
+Rotate and crop the current image
+=end item
+
+=begin item
+I<translate>
+
+C<<translate(Scale() $scale --> Image)>>
+
+Translate the current image by the specified scale
+=end item
+
+=begin item
+I<scale>
+
+C<<scale(Scale() $scale --> Image)>>
+
+Scale the current image by the specified scale
+=end item
+
+=begin item
+I<normalize>
+
+C<<normalize(--> Image)>>
+
+Normalize the current image
+=end item
+
+=begin item
+I<transpose>
+
+C<<transpose(--> Image)>>
+
+Transpose the current image
+=end item
+
+=begin item
+I<rotate>
+
+C<<rotate(Num() $angle --> Image)>>
+
+Rotate the current image by the specified angle
+=end item
+
+=begin item
+I<box>
+
+C<<box(Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $r, Num() $g, Num() $b --> Image)>>
+
+Draw a box on the current image with specified coordinates and color
+=end item
+
+=begin item
+I<bbox>
+
+C<<bbox(Box $box, Num() $r, Num() $g, Num() $b --> Image)>>
+
+C<<bbox(Box $box, Num() $r, Num() $g, Num() $b, Int() $width --> Image)>>
+
+Draw a bounding box on the current image with specified box, color, and optional width
+=end item
+
+=begin item
+I<box_grayscale>
+
+C<<box_grayscale(Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $v --> Image)>>
+
+Draw a box on the current image with specified coordinates and grayscale value
+
+=end item
+
+=begin item
+I<circle>
+
+C<<circle(Int() $x, Int() $y, Int() $r, Num() $red, Num() $green, Num() $blue --> Image)>>
+
+C<<circle(Int() $x, Int() $y, Int() $radius,Int() $thickness, Num() $r, Num() $g,Num() $b,  --> Image)>>
+
+Draw a circle on the current image with specified coordinates, radius, color, and optional thickness.
+
+=end item
+
+=begin item
+I<crop>
+
+C<<crop(Int() $x, Int() $y, Int() $w, Int() $h --> Image)>>
+
+Crop the current image with specified coordinates and dimensions
+
+=end item
+
+=begin item
+
+I<random_crop>
+
+C<<random_crop(Int() $w, Int() $h --> Image)>>
+
+Randomly crop the current image with specified dimensions
+
+=end item
+
+=begin item
+I<random_augment>
+
+C<<random_augment(Num() $angel, Num() $aspect, Int() $low, Int() $high, Int() $size --> Image)>>
+
+Randomly augment the current image with specified parameters.
+
+=end item
+
+=AUTHOR
+
+Khalid Elborai <elboraikhalid@gmail.com>
+
+=end pod

@@ -1,6 +1,6 @@
 use v6.d;
 use SOD::Raw;
-unit module SOD;
+unit module SOD:ver<0.2.1>:auth<zef:khalidelborai>:api<1.0>;
 
 subset Scale of Num where 0 <=* <= 1;
 
@@ -171,3 +171,5 @@ class Image {
 	}
 
 }
+
+
