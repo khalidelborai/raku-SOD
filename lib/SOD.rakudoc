@@ -256,6 +256,74 @@ Randomly augment the current image with specified parameters.
 
 =end item
 
+=begin item
+I<add_pixel>
+
+C<<add_pixel(Int() $x, Int() $y, Int() $c, Num() $v --> Image)>>
+
+Add a constant value to a pixel at the given location. This value must be set between 0..1 such as 0.7.
+
+=end item
+
+=begin item
+I<rgb_to_bgr>
+
+C<<rgb_to_bgr(--> Image)>>
+
+Change the RGB colorspace of a given image to the BGR colorspace.
+
+
+=end item
+
+=begin item
+
+I<bgr_to_rgb>
+
+C<<bgr_to_rgb(--> Image)>>
+
+Change the BGR colorspace of a given image to the RGB colorspace.
+
+=end item
+
+=begin item
+
+I<rgb_to_hsv>
+
+C<<rgb_to_hsv(--> Image)>>
+
+Change the RGB colorspace of a given image to the HSV colorspace.
+
+=end item
+
+=begin item
+
+I<hsv_to_rgb>
+
+C<<hsv_to_rgb(--> Image)>>
+
+Change the HSV colorspace of a given image to the RGB colorspace.
+
+=end item
+
+=begin item
+I<yuv_to_rgb>
+
+C<<yuv_to_rgb(--> Image)>>
+
+Change the YUV colorspace of a given image to the RGB colorspace.
+
+=end item
+
+=begin item
+I<rgb_to_yuv>
+
+C<<rgb_to_yuv(--> Image)>>
+
+Change the RGB colorspace of a given image to the YUV colorspace.
+
+
+=end item
+
 =AUTHOR
 
 Khalid Elborai <elboraikhalid@gmail.com>

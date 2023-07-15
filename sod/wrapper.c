@@ -84,6 +84,48 @@ SOD_APIEXPORT void set_pixel(sod_img *img, int x, int y, int c, float val)
     sod_img_set_pixel(*img, x, y, c, val);
 }
 
+SOD_APIEXPORT void add_pixel(sod_img *img, int x, int y, int c, float val)
+{
+    sod_img_add_pixel(*img, x, y, c, val);
+}
+
+SOD_APIEXPORT sod_img *get_layer(sod_img *img, int layer)
+{
+    sod_img *out = (sod_img *)malloc(sizeof(sod_img));
+    *out = sod_img_get_layer(*img, layer);
+    return out;
+}
+
+SOD_APIEXPORT void rgb_to_hsv(sod_img *img)
+{
+    sod_img_rgb_to_hsv(*img);
+}
+
+SOD_APIEXPORT void hsv_to_rgb(sod_img *img)
+{
+    sod_img_hsv_to_rgb(*img);
+}
+
+SOD_APIEXPORT void rgb_to_bgr(sod_img *img)
+{
+    sod_img_rgb_to_bgr(*img);
+}
+
+SOD_APIEXPORT void bgr_to_rgb(sod_img *img)
+{
+    sod_img_bgr_to_rgb(*img);
+}
+
+SOD_APIEXPORT void yuv_to_rgb(sod_img *img)
+{
+    sod_img_yuv_to_rgb(*img);
+}
+
+SOD_APIEXPORT void rgb_to_yuv(sod_img *img)
+{
+    sod_img_rgb_to_yuv(*img);
+}
+
 SOD_APIEXPORT sod_img *resize(sod_img *img, int w, int h)
 {
     sod_img *out = (sod_img *)malloc(sizeof(sod_img));

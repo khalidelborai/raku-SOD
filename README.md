@@ -201,6 +201,48 @@ An `Image` class representing an image that can be manipulated.
 
     Randomly augment the current image with specified parameters.
 
+  * *add_pixel*
+
+    `add_pixel(Int() $x, Int() $y, Int() $c, Num() $v --> Image)`
+
+    Add a constant value to a pixel at the given location. This value must be set between 0..1 such as 0.7.
+
+  * *rgb_to_bgr*
+
+    `rgb_to_bgr(--> Image)`
+
+    Change the RGB colorspace of a given image to the BGR colorspace.
+
+  * *bgr_to_rgb*
+
+    `bgr_to_rgb(--> Image)`
+
+    Change the BGR colorspace of a given image to the RGB colorspace.
+
+  * *rgb_to_hsv*
+
+    `rgb_to_hsv(--> Image)`
+
+    Change the RGB colorspace of a given image to the HSV colorspace.
+
+  * *hsv_to_rgb*
+
+    `hsv_to_rgb(--> Image)`
+
+    Change the HSV colorspace of a given image to the RGB colorspace.
+
+  * *yuv_to_rgb*
+
+    `yuv_to_rgb(--> Image)`
+
+    Change the YUV colorspace of a given image to the RGB colorspace.
+
+  * *rgb_to_yuv*
+
+    `rgb_to_yuv(--> Image)`
+
+    Change the RGB colorspace of a given image to the YUV colorspace.
+
 AUTHOR
 ======
 

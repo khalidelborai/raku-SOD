@@ -34,6 +34,8 @@ class Box is repr('CStruct') is export {
 
 constant LIB_PATH = %?RESOURCES<libraries/sod>.absolute;
 
+# constant LIB_PATH = "$*CWD/sod/";
+
 sub free_image(CImage) is native(LIB_PATH) is export {*}
 
 sub make_empty_image(int32,int32,int32) returns CImage is native(LIB_PATH) is export {*}
@@ -91,3 +93,19 @@ sub crop(CImage,int32,int32,int32,int32) returns CImage is native(LIB_PATH) is e
 sub random_crop(CImage,int32,int32) returns CImage is native(LIB_PATH) is export {*}
 
 sub random_augment(CImage,num32,num32,int32,int32,int32) returns CImage is native(LIB_PATH) is export {*}
+
+sub add_pixel(CImage,int32,int32,int32,num32) is native(LIB_PATH) is export {*}
+
+sub get_layer(CImage,int32) returns CImage is native(LIB_PATH) is export {*}
+
+sub rgb_to_hsv(CImage) is native(LIB_PATH) is export {*}
+
+sub hsv_to_rgb(CImage) is native(LIB_PATH) is export {*}
+
+sub rgb_to_bgr(CImage) is native(LIB_PATH) is export {*}
+
+sub bgr_to_rgb(CImage) is native(LIB_PATH) is export {*}
+
+sub yuv_to_rgb(CImage) is native(LIB_PATH) is export {*}
+
+sub rgb_to_yuv(CImage) is native(LIB_PATH) is export {*}

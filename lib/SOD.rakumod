@@ -1,5 +1,6 @@
 use v6.d;
 use SOD::Raw;
+
 unit module SOD:ver<0.2.1-dev>:auth<zef:khalidelborai>:api<1.0>;
 
 subset Scale of Num where 0 <=* <= 1;
@@ -32,12 +33,12 @@ class Image {
 		self.new(:$cimage);
 	}
 
-	method copy(::?CLASS:D: --> Image) {
+	method copy( --> Image) {
 		my $cimage = copy_image(self.cimage);
 		self.new(:$cimage);
 	}
 
-	method clone(::?CLASS:D: --> Image) {
+	method clone( --> Image) {
 		return self.copy();
 	}
 
@@ -74,99 +75,134 @@ class Image {
 		get_pixel(self.cimage, $x, $y, $c);
 	}
 
-	method resize(::?CLASS:D: Int() $w, Int() $h --> Image) {
+	method resize( Int() $w, Int() $h --> Image) {
 		$!cimage = resize(self.cimage, $w, $h);
 		self;
 	}
 
-	method resize_max(::?CLASS:D: Int() $max --> Image) {
+	method resize_max( Int() $max --> Image) {
 		$!cimage = resize_max(self.cimage, $max);
 		self
 	}
 
-	method resize_min(::?CLASS:D: Int() $min --> Image) {
+	method resize_min( Int() $min --> Image) {
 		$!cimage = resize_min(self.cimage, $min);
 		self;
 	}
 
-	method rotate_crop(::?CLASS:D: Num() :a($angle), Scale() :s($scale) , Int() :w($width), Int() :h($height),
+	method rotate_crop( Num() :a($angle), Scale() :s($scale) , Int() :w($width), Int() :h($height),
 	                   Int() :x($dx), Int() :y($dy),Num() :as($aspect) --> Image) {
 		$!cimage = rotate_crop(self.cimage, $angle, $scale, $width, $height, $dx, $dy, $aspect);
 		self;
 	}
 
-	method translate(::?CLASS:D: Scale() $scale --> Image) {
+	method translate( Scale() $scale --> Image) {
 		translate(self.cimage, $scale);
 		self;
 	}
 
-	method scale(::?CLASS:D: Scale() $scale --> Image) {
+	method scale( Scale() $scale --> Image) {
 		scale(self.cimage, $scale);
 		self;
 	}
 
-	method normalize(::?CLASS:D: --> Image) {
+	method normalize( --> Image) {
 		normalize(self.cimage);
 		self;
 	}
 
-	method transpose(::?CLASS:D: --> Image) {
+	method transpose( --> Image) {
 		transpose(self.cimage);
 		self;
 	}
 
-	method rotate(::?CLASS:D: Num() $angle --> Image) {
-		my $cimage = rotate(self.cimage, $angle);
-		self.new(:$cimage);
+	method rotate( Num() $angle --> Image) {
+		$!cimage = rotate(self.cimage, $angle);
+		self;
 	}
 
-	method box(::?CLASS:D: Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $r, Num() $g, Num() $b --> Image) {
+	method box( Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $r, Num() $g, Num() $b --> Image) {
 		draw_box(self.cimage, $x1, $y1, $x2, $y2, $r, $g, $b);
 		self;
 	}
 
-	multi method bbox(::?CLASS:D: Box $box, Num() $r, Num() $g, Num() $b --> Image) {
+	multi method bbox( Box $box, Num() $r, Num() $g, Num() $b --> Image) {
 		draw_bbox(self.cimage, $box, $r, $g, $b);
 		self;
 	}
 
-	multi method bbox(::?CLASS:D: Box $box, Num() $r, Num() $g, Num() $b, Num() $w --> Image) {
+	multi method bbox( Box $box, Num() $r, Num() $g, Num() $b, Num() $w --> Image) {
 		draw_bbox_width(self.cimage, $box, $r, $g, $b, $w);
 		self;
 	}
 
-	method box_grayscale(::?CLASS:D: Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $v --> Image) {
+	method box_grayscale( Int() $x1, Int() $y1, Int() $x2, Int() $y2, Num() $v --> Image) {
 		draw_box_grayscale(self.cimage, $x1, $y1, $x2, $y2, $v);
 		self;
 	}
 
-	multi method circle(::?CLASS:D: Int() $x, Int() $y, Int() $radius, Num() $r, Num() $g, Num() $b --> Image) {
+	multi method circle( Int() $x, Int() $y, Int() $radius, Num() $r, Num() $g, Num() $b --> Image) {
 		draw_circle(self.cimage, $x, $y, $radius, $r, $g, $b);
 		self;
 	}
 
-	multi method circle(::?CLASS:D: Int() $x, Int() $y, Int() $radius,Int() $thickness, Num() $r, Num() $g,
+	multi method circle( Int() $x, Int() $y, Int() $radius,Int() $thickness, Num() $r, Num() $g,
 	                    Num() $b,  --> Image) {
 		draw_circle_thickness(self.cimage, $x, $y, $radius, $thickness, $r, $g, $b);
 		self;
 	}
 
-	method crop(::?CLASS:D: Int() $x, Int() $y, Int() $w, Int() $h --> Image) {
+	method crop( Int() $x, Int() $y, Int() $w, Int() $h --> Image) {
 		$!cimage = crop(self.cimage, $x, $y, $w, $h);
 		self;
 	}
 
-	method random_crop(::?CLASS:D: Int() $w, Int() $h --> Image) {
+	method random_crop( Int() $w, Int() $h --> Image) {
 		$!cimage = random_crop(self.cimage, $w, $h);
 		self;
 	}
 
-	method random_augment(::?CLASS:D: Num() $angel, Num() $aspect, Int() $low, Int() $high, Int() $size --> Image) {
+	method random_augment( Num() $angel, Num() $aspect, Int() $low, Int() $high, Int() $size --> Image) {
 		$!cimage = random_augment(self.cimage, $angel, $aspect, $low, $high, $size);
 		self;
 	}
 
-	method DESTROY(::?CLASS:D:) {
+	method add_pixel( Int() $x, Int() $y, Int() $c, Num() $v --> Image) {
+		add_pixel(self.cimage, $x, $y, $c, $v);
+		self;
+	}
+
+	method rgb_to_bgr( --> Image) {
+		rgb_to_bgr(self.cimage);
+		self;
+	}
+
+	method bgr_to_rgb( --> Image) {
+		bgr_to_rgb(self.cimage);
+		self;
+	}
+
+	method rgb_to_hsv( --> Image) {
+		rgb_to_hsv(self.cimage);
+		self;
+	}
+
+	method hsv_to_rgb( --> Image) {
+		hsv_to_rgb(self.cimage);
+		self;
+	}
+
+	method rgb_to_yuv( --> Image) {
+		rgb_to_yuv(self.cimage);
+		self;
+	}
+
+	method yuv_to_rgb( --> Image) {
+		yuv_to_rgb(self.cimage);
+		self;
+	}
+
+	method DESTROY() {
 		free_image(self.cimage);
 	}
 
